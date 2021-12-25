@@ -56,7 +56,7 @@ cat *.err.txt > test.all.err.txt
 awk '{print "@"$2"\n"$6"\n+\n"$7}' test.all.out.txt | gzip -nc > test.clean.fastq.gz
 rm test.*.err.txt test.*.out.txt *fastq.log.txt test.ccs.part-*.fastq
 ```
-Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py SCGV.ccs.part-*.fastq SCGV.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
+Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
 ```
 # demo for "CCS_split_clean_end_extension_v1.py" with the demo data
 python CCS_split_clean_end_extension_v1.py test.fastq test.pass.txt test.barcode.fa 2 1> test.out.txt 2> test.err.txt
@@ -97,7 +97,7 @@ python PolyA_note_V2.1.py test.polyA_trim.out.txt test.clean.filter.bam.featureC
 ```
 python DNA_spikein_extract_2019_NC_V1.3.py PSI.ccs.fastq PSI.ccs.pass.txt PSI-barcode.fa 2 1 1> PSI.out.txt 2> PSI.err.txt
 ```
-Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py SCGV.ccs.part-*.fastq SCGV.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
+Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
 ```
 # demo for "DNA_spikein_extract_2019_NC_V1.3.py" with the demo data
 python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.fastq test_spikein.pass.txt PSI-barcode.fa 2 1 1> test.PSI.out.txt 2> test.PSI.err.txt
@@ -107,5 +107,5 @@ python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.fastq test_spikein.pass.
 
 ### 
 #### Output file</br>
-Now you have the test.polyA_note.txt file containing the essential information for each of the sequenced poly(A) tail contains the following 13 columns of information for one read: contains the following 13 columns of information for one read: barcode, read_id, ensembl_id, pass_number, “1”, number_of_residue_A, number_of_residue_T, number_of_residue_C, number_of_residue_G, number_of_residue_T+C+G, “0”, poly(A)-tail_sequence and average_quality_value_of_poly(A)-tail_bases.
+Now you have the test.polyA_note.txt file containing the essential information for each of the sequenced poly(A) tail contains the following 13 columns of information for one read: contains the following 13 columns of information for one read: barcode, read_id, ensembl_id, pass_number, “1”, number_of_residue_A, number_of_residue_T, number_of_residue_C, number_of_residue_G, number_of_residue_T+C+G, “0”, poly(A)_tail_sequence and average_quality_value_of_poly(A)_tail_bases.
 ### 
