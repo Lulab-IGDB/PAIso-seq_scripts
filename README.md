@@ -60,9 +60,9 @@ Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.pa
 ```
 # demo for "CCS_split_clean_end_extension_v1.py" with the demo data
 python CCS_split_clean_end_extension_v1.py test.fastq test.pass.txt test.barcode.fa 2 1> test.out.txt 2> test.err.txt
-awk '{print "@"$2"\n"$6"\n+\n"$7}' test.out.txt | gzip -nc > test.clean.fastq.gz</br>
-## run time: 93s</br>
-## expected output: 6936 rows in test.out.txt and 221 rows in test.err.txt</br>
+awk '{print "@"$2"\n"$6"\n+\n"$7}' test.out.txt | gzip -nc > test.clean.fastq.gz
+## run time: 93s
+## expected output: 6936 rows in test.out.txt and 221 rows in test.err.txt
 ```
 
 #### Step2. Align the clean-reads to the genome
