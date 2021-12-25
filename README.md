@@ -97,7 +97,9 @@ python PolyA_note_V2.1.py test.polyA_trim.out.txt test.clean.filter.bam.featureC
 ```
 python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.ccs.fastq test_spikein.ccs.pass.txt PSI-barcode.fa 2 1 1> test.PSI.out.txt 2> test.PSI.err.txt
 ```
-Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
+Note: 
+1. The ccs pass file for the polyA_spike-ins-1.ccs.fastq.gz and polyA_spike-ins-2.ccs.fastq.gz files referred in our manuscript are uploaded here in the folder: /polyA_spike-in_pass_file/ </br>
+2. The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
 ```
 # demo for "DNA_spikein_extract_2019_NC_V1.3.py" with the demo data in folder /demo_data
 python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.fastq test_spikein.pass.txt PSI-barcode.fa 2 1 1> test.PSI.out.txt 2> test.PSI.err.txt
