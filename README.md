@@ -58,7 +58,7 @@ rm test.*.err.txt test.*.out.txt *fastq.log.txt test.ccs.part-*.fastq
 ```
 Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
 ```
-# demo for "CCS_split_clean_end_extension_v1.py" with the demo data
+# demo for "CCS_split_clean_end_extension_v1.py" with the demo data in folder /demo_data
 python CCS_split_clean_end_extension_v1.py test.fastq test.pass.txt test.barcode.fa 2 1> test.out.txt 2> test.err.txt
 awk '{print "@"$2"\n"$6"\n+\n"$7}' test.out.txt | gzip -nc > test.clean.fastq.gz
 ## run time: 93s
@@ -79,14 +79,14 @@ featureCounts -L -g gene_id -t exon -s 1 -R CORE -a ../genome/gencode.vM25.prima
 python PolyA_note_V2.1.py test.polyA_trim.out.txt test.clean.filter.bam.featureCounts 1> test.polyA_note.txt 2> test.polyA_note.err.txt
 ```
 ```
-# demo for "PolyA_trim_V5.4.1.py" with the demo data
+# demo for "PolyA_trim_V5.4.1.py" with the demo data in folder /demo_data
 minimap2 -ax splice -uf --secondary=no -t 40 -L --MD --cs --junc-bed gencode.vM25.primary_assembly.annotation.bed gencode.vM25.mmi test.clean.fastq.gz 2> align.log | samtools view -F 3844 -bS > test.clean.filter.bam
 python PolyA_trim_V5.4.1.py test.clean.filter.bam > test.polyA_trim.out.txt
 ## run time: 20s
 ## expected output: 5285 rows in test.polyA_trim.out.txt
 ```
 ```
-# demo for "PolyA_note_V2.1.py" with the demo data
+# demo for "PolyA_note_V2.1.py" with the demo data in folder /demo_data
 featureCounts -L -g gene_id -t exon -s 1 -R CORE -a ../genome/gencode.vM25.primary_assembly.annotation.gtf -o test.featureCounts test.clean.filter.bam &> test.featureCounts.log
 python PolyA_note_V2.1.py test.polyA_trim.out.txt test.clean.filter.bam.featureCounts 1> test.polyA_note.txt 2> test.polyA_note.err.txt
 ## run time: 5s
@@ -95,11 +95,11 @@ python PolyA_note_V2.1.py test.polyA_trim.out.txt test.clean.filter.bam.featureC
 
 #### (Optional). Extract clean poly(A) sequences of poly(A) spike-ins from the CCS reads
 ```
-python DNA_spikein_extract_2019_NC_V1.3.py PSI.ccs.fastq PSI.ccs.pass.txt PSI-barcode.fa 2 1 1> PSI.out.txt 2> PSI.err.txt
+python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.ccs.fastq test_spikein.ccs.pass.txt PSI-barcode.fa 2 1 1> test.PSI.out.txt 2> test.PSI.err.txt
 ```
 Note: The parameter 2 in 'python CCS_split_clean_end_extension_v1.py test.ccs.part-*.fastq test.ccs.pass.txt barcode.fa 2 ' means number of mismatches allowed for matching barcodes in barcode.fa file with reads, which we recommend no more than 4.</br>
 ```
-# demo for "DNA_spikein_extract_2019_NC_V1.3.py" with the demo data
+# demo for "DNA_spikein_extract_2019_NC_V1.3.py" with the demo data in folder /demo_data
 python DNA_spikein_extract_2019_NC_V1.3.py test_spikein.fastq test_spikein.pass.txt PSI-barcode.fa 2 1 1> test.PSI.out.txt 2> test.PSI.err.txt
 ## run time: 1s
 ## expected output: 14 rows in test.PSI.out.txt and 2 rows in test.PSI.err.txt
